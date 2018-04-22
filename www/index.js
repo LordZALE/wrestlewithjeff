@@ -7,6 +7,9 @@ PIXI.loader
     .add('img/intro_1.png')
     .add('img/intro_2.png')
     .add('img/sitting.png')
+    .add('img/happy.png')
+    .add('img/gettin_ready.png')
+    .add('img/big_flex.png')
     .load(initialize);
 
 const world = {};
@@ -141,7 +144,13 @@ function startGame() {
         updateRemainingText();
 
         //update jeff
-        //TODO
+        if (world.remaining === 20000) {
+            setJeffImg('happy');
+        } else if (world.remaining === 15000) {
+            setJeffImg('gettin_ready');
+        } else if (world.remaining === 10000) {
+            setJeffImg('big_flex');
+        }
 
         //check if the game is over
         let lose = world.remaining === 0;
